@@ -40,6 +40,7 @@ export default {
   methods:{
     toTestEcharts(){
       this.$router.push("/testEcharts");
+      // same as .push({path:'/testEcharts'});
     }
   }
 };
