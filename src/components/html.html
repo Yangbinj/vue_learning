@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue组件实现折叠面板</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/2.0.3/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="i in mainData">
+            <c1 :item="i">
+                <p>{{ i }}</p>
+                fasdfasldfkasd;fkasd;fkasdf;ksadfksafksad;
+            </c1>
+        </div>
+    </div>
+    <template id="c1">
+        <div>
+            <div v-show="open">
+                <slot></slot>
+            </div>
+            <button type="button" @click="open=!open">{{ open ? 'hide' : 'show' }}</button>
+         
+        </div>
+    </template>
+
+
+    <script>
+        Vue.component('c1', {
+            template: '#c1',
+            data() {
+                return {
+                    open: true
+                }
+            }
+        })
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                mainData: [1, 2, 3, 4]
+            }
+        })
+    </script>
+</body>
+
+</html>
