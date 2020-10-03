@@ -10,6 +10,8 @@ import dynamicInfo from '@/components/enhanced/dynamicInfo.vue'
 import parent from '@/components/enhanced/parent.vue'
 import TestBus from '@/components/enhancedTest/TestBus.vue'
 import InfoCard from '@/components/enhanced/InfoCard.vue'
+import vuextest from '@/components/enhanced/vuextest.vue'
+import testVuexModule from '@/components/enhancedTest/testVuexModule.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +20,16 @@ export default new Router({
       path: '/parent',
       name: 'parent',
       component: parent
+    },
+    {
+      path: '/testVuexModule',
+      name: 'testVuexModule',
+      component: testVuexModule
+    },
+    {
+      path: '/vuextest',
+      name: 'vuextest',
+      component: vuextest
     },
     {
       path: '/InfoCard',

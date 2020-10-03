@@ -5,6 +5,7 @@
     <div class="router">
     <router-view/>
     </div>
+    <div>这是store的state：{{ name }}</div>
   </div>
 </template>
 
@@ -15,6 +16,16 @@ export default {
   name: 'App',
   components:{
     HelloWorld
+  },
+  data(){
+    return {
+      name:''
+    }
+  },
+  mounted(){
+    console.log("store.state",this.$store.state.name);
+    this.name = this.$store.state.name
+
   }
 }
 </script>
