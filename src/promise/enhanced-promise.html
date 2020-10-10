@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>enhanced promise</title>
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <!-- <script src="js/jquery-3.2.1.js"></script> -->
+    <script>
+        // resolve作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
+        // reject作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+        // promise有三个状态：
+        // 1、pending[待定]初始状态
+        // 2、fulfilled[实现]操作成功
+        // 3、rejected[被否决]操作失败
+        // 当promise状态发生改变，就会触发then()里的响应函数处理后续步骤；
+        // promise状态一经改变，不会再变。
+        // Promise对象的状态改变，只有两种可能：
+        // 从pending变为fulfilled
+        // 从pending变为rejected。
+        // 这两种情况只要发生，状态就凝固了，不会再变了。
+
+        // 链接：https://www.jianshu.com/p/1b63a13c2701
+        //切菜
+        function cutUp() {
+            console.log('开始切菜。');
+            var p = new Promise(function (resolve, reject) {        //做一些异步操作
+                setTimeout(function () {
+                    console.log('切菜完毕！');
+                    resolve('切好的菜');
+                }, 1000);
+            });
+            return p;
+        }
+
+        //烧水
+        function boil() {
+            console.log('开始烧水。');
+            var p = new Promise(function (resolve, reject) {        //做一些异步操作
+                setTimeout(function () {
+                    console.log('烧水完毕！');
+                    resolve('烧好的水');
+                }, 1000);
+            });
+            return p;
+        }
+
+        Promise.all([cutUp(), boil()])
+            .then((result) => {
+                console.log('准备工作完毕');
+                console.log(result, fff);
+            })
+
+        let p1 = new Promise(resolve => {
+            setTimeout(() => {
+                resolve('I\`m p1 ')
+            }, 1000)
+        });
+        let p2 = new Promise(resolve => {
+            setTimeout(() => {
+                resolve('I\`m p2 ')
+            }, 2000)
+        });
+        Promise.race([p1, p2])
+            .then(value => {
+                console.log(value)
+            })    
+    </script>
+</body>
+
+</html>
