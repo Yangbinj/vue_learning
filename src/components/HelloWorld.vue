@@ -65,7 +65,11 @@ export default {
   computed: {
     nameVal() {
       return this.$store.state.name;
-    }
+    },
+    // ...mapState(['name']),
+    // nameVal() {
+    //   return this.name;
+    // },
   },
   methods: {
     ...mapMutations({

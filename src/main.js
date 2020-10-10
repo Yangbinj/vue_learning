@@ -6,7 +6,17 @@ import router from './router'
 import echarts from 'echarts'
 import less from 'less'
 import store from './store'
+import axios from 'axios'
+
 Vue.use(less);
+Vue.prototype.$axios = axios
+// this.$axios({
+//   url: "",
+//   method: "get",
+//   params: {}
+// }).then(res => {
+//   console.log(res)
+// })
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts;
 /* eslint-disable no-new */
