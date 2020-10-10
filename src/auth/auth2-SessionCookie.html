@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP Basic Authentication</title>
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.slim.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.slim.min.js"></script> -->
+</head>
+
+<body>
+    <div></div>
+    <!-- <script src="js/jquery-3.2.1.js"></script> -->
+    <script>
+        // 参考https://mp.weixin.qq.com/s/QPHjLV7zHfJoogCEcWRJrA
+        // HTTP Basic Authentication
+        $(function () {
+            send('http://localhost:9090/Authentication_base');
+        })
+        var send = function (url) {
+            $.ajax({
+                url: url,
+                method: 'GET',
+            });
+        }
+    </script>
+</body>
+
+</html>
